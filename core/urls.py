@@ -23,3 +23,15 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('admin/', admin.site.urls),
 ]
+from django.contrib import admin
+from django.urls import path, include
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("API is running")
+
+urlpatterns = [
+    path("", home),              # http://127.0.0.1:8000/
+    path("api/", include("api.urls")),
+    path("admin/", admin.site.urls),
+]
